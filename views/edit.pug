@@ -1,0 +1,50 @@
+doctype html
+html
+    head
+            title='Product Crud'
+            link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" type="text/css")
+            meta(name="viewport",content="width=device-width,initial-scale=-1")
+            script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+            script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+    body
+            nav.nav.navbar-inverse
+                .container
+                    .navbar-header
+                        a(class="navbar-brand",href="/") Product CRUD
+                        button(class="navbar-toggle",data-target="#menu",data-toggle="collapse")
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                    div(class="collapse navbar-collapse",id="menu")
+                        ul.navbar-nav.nav
+                            li
+                                a(href="/") Products
+                            li
+                                a(href="/create") Create Product
+
+            .container
+                .row
+                    .col-md-12.jumbotron
+                        h1.text-center="Edit Product"
+
+            .container
+                .row
+                    .col-md-6.col-md-offset-3.well
+                        form(action="/update/"+product['_id'], method="post",autocomplete="off")
+                            .form-group
+                                label Product Title
+                                input(type="text",name="title",class="form-control", placeholder="Enter Product Name",value=product['title'],required)
+                            .form-group
+                                label Image URL
+                                input(type="url",name="image",class="form-control", placeholder="Enter Product Image Url",value=product['image'],required)
+                            .form-group
+                                label  Price
+                                input(type="number",name="price",class="form-control", placeholder="Enter Product Price",value=product['price'],required)
+                            .form-group
+                                label GST
+                                input(type="number",name="gst",class="form-control", placeholder="Enter GST",value=product['gst'],required)
+                            .form-group
+                                label Product Details
+                                input(type="text",name="description",class="form-control", placeholder="Enter Product Description",value=product['description'],required)
+                            .form-group
+                                input(type="submit",class="btn btn-primary", value="Create Product")
